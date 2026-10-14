@@ -34,7 +34,6 @@ class TaskQueue(CommonModel):
     task_id: Mapped[int] = mapped_column(
         ForeignKey("task.id")
     )
-    order: Mapped[int] = mapped_column(autoincrement=True)
 
 
 class TaskStatus(CommonModel):
@@ -45,3 +44,4 @@ class TaskStatus(CommonModel):
         ForeignKey("task.id")
     )
     status: Mapped[str] = mapped_column(String(), nullable=False)
+    error: Mapped[str | None] = mapped_column(String(), nullable=True)
